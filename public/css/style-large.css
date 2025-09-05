@@ -1,0 +1,23 @@
+@media screen and (min-width: 700px) {
+ 
+    .content-wrapper {
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-evenly;
+    }
+    /*hero text*/
+    .hero-text {
+    
+        left: 25rem;
+    
+    }
+    .reviews h2,
+    .upgrades h2 {
+        margin: 0;
+        padding: 0;
+        font-size: 1.5rem;
+        text-decoration: underline;
+        margin-bottom: 1rem;
+    }
+    
+}

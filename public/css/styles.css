@@ -3,4 +3,159 @@
 *:before,
 *:after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+/* Header container */
+#top-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  color: black;
+}
+
+/* Site name styling */
+.siteName a {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+  
+}
+
+.siteName a:hover {
+  text-decoration: underline;
+}
+
+/* Tools section (e.g., My Account link) */
+#tools a {
+  font-size: 1rem;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: #0055aa;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+#tools a:hover {
+  background-color: #003377;
+}
+/* Navigation bar styling */
+nav {
+  background-color: black;
+  cursor: pointer;
+
+}
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 1rem;
+  color: white;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 1rem;
+  font-size: large;
+
+
+}
+nav ul li:hover {
+  text-decoration: underline;
+ 
+}
+
+
+/* hero image styling */
+.hero {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+.hero-text {
+  color: black;
+  border: 1px solid black;
+  background-color: #FFFFFF;
+  opacity: 0.8;
+  padding: 1rem;
+  max-width: 300px;
+  box-shadow: 0 0 10px rgba(134, 131, 131, 0.1);
+  position: absolute;
+  left: .5rem;
+  top: 13rem;
+  font-size: medium;
+  font-weight: bold;
+  margin: 1rem;
+
+}
+.hero-image {
+  text-align: center;
+}
+.hero-text ul {
+  list-style: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 1rem;
+}
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  margin-left: 2rem;
+  
+
+}
+/*button styling*/
+.purchase-btn {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: navy;
+  color: white;
+  margin: 1rem;
+  opacity: 0.9;
+  margin-top: 1rem;
+}
+.reviews ul li {
+  color: black;
+  padding: 1rem;
+  
+}
+.upgrades {
+  text-align: center;
+}
+.upgrade-item {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+.upgrade-item > div {
+  max-width: 150px;
+  text-align: center;
+  
+  
+
+}
+.upgrade-item img {
+  width: 100%;
+  height: auto;
+  border: 1px solid black;
+  border-radius: 8px;
+  
+}
+/*footer*/
+footer {
+  text-align: center;
+  background-color: #0055aa;
+  color: white;
+  padding: 1rem;
+}
+
+
