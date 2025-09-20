@@ -5,10 +5,14 @@
         align-items: flex-start;
         justify-content: space-evenly;
     }
+    nav ul {
+        justify-content: space-evenly;
+        font-size: large;
+    }
     /*hero text*/
     .hero-text {
     
-        left: 25rem;
+        left: 8rem;
     
     }
     .reviews h2,
@@ -19,5 +23,10 @@
         text-decoration: underline;
         margin-bottom: 1rem;
     }
+    footer a {
+        margin-right: 70em;
+    }
+
+    
     
 }

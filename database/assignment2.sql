@@ -24,4 +24,4 @@ WHERE c.classification_name = 'Sport';
 --Updating inventory to use the path images/vehicles
 UPDATE inventory
 SET inv_image = REPLACE(inv_image, '/images/', '/images/vehicles/'),
-	inv_thumbnail = REPLACE(inv_thumbnail, 'images/', '/images/vehicles');
+ inv_thumbnail = REPLACE(inv_thumbnail, '/images/vehicles', '/images/vehicles/');

@@ -51,26 +51,37 @@ html, body {
 nav {
   background-color: black;
   cursor: pointer;
-
+  
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
 }
 nav ul {
   list-style: none;
-  margin: 0;
   padding: 1rem;
-  color: white;
   display: flex;
-  justify-content: space-evenly;
-  align-items: center;
+  justify-content: center;
+  font-size: small;
   margin-top: 1rem;
-  font-size: large;
-
-
-}
-nav ul li:hover {
-  text-decoration: underline;
- 
 }
 
+/* Each list item */
+
+
+/* The links */
+nav ul li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.2s ease, background 0.2s ease;
+
+}
+nav a:hover {
+  
+  padding: 0.5rem 1rem;
+  background: #444;
+}
 
 /* hero image styling */
 .hero {
@@ -150,12 +161,104 @@ nav ul li:hover {
   border-radius: 8px;
   
 }
+/* styling the inventory */
+#inv-display {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  border-radius: 2px;
+  background-color: #fff;
+}
+#inv-display li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+}
+#inv-display li:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+#inv-display img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+#inv-display .namePrice {
+  padding: 15px;
+  text-align: center;
+}
+
+#inv-display .namePrice h2 {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+#inv-display .namePrice span {
+  display: block;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #27ae60;
+  margin-top: 8px;
+  text-align: center;
+}
+/* Syling the vehicles detail page */
+.vehicle-detail {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  padding: 2rem;
+  align-items: center;
+  gap: 2rem;
+}
+.vehicle-detail img {
+  width: 100%;
+  max-width: 500px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.vehicle-info h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #333;
+}
+.vehicle-info .price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #007b5e; /* green accent */
+  margin-bottom: 1rem;
+}
+
+.vehicle-info p {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+  color: #555;
+}
+
+.vehicle-info strong {
+  color: #222;
+}
+
 /*footer*/
 footer {
   text-align: center;
   background-color: #0055aa;
   color: white;
   padding: 1rem;
+}
+footer a {
+  margin-right: 20rem;
+  text-align: left;
+  color: white;
+  text-decoration: underline;
 }
 
 
