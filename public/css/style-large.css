@@ -6,6 +6,7 @@
         justify-content: space-evenly;
     }
     nav ul {
+        flex-direction: row;
         justify-content: space-evenly;
         font-size: large;
     }
