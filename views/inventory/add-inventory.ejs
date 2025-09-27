@@ -1,0 +1,53 @@
+<title><%= title %></title>
+<h1><%= title %></h1>
+
+<!-- Flash message area -->
+<%- messages() %>
+
+<% if (errors && errors.length > 0) { %>
+  <ul class="notice">
+    <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<p id="form-alert">ALL FIELDS ARE REQUIRED</p>
+
+<div class="form-wrapper">
+  <form action="/inv/add-inventory" method="post" id="add-inventory-form">
+    
+    <!-- Classification Dropdown -->
+    <label for="classificationList">Classification</label>
+    <%- classificationList %>
+
+    <label for="inv_make">Make</label>
+    <input type="text" id="inv_make" name="inv_make" required value="<%= locals.inv_make %>"><br>
+
+    <label for="inv_model">Model</label>
+    <input type="text" id="inv_model" name="inv_model" required value="<%= locals.inv_model %>"><br>
+
+    <label for="inv_year">Year</label>
+    <input type="number" id="inv_year" name="inv_year" required min="1900" max="2099" value="<%= locals.inv_year %>"><br>
+
+    <label for="inv_description">Description</label>
+    <textarea id="inv_description" name="inv_description" required><%= locals.inv_description %></textarea><br>
+
+    <label for="inv_price">Price</label>
+    <input type="number" step="0.01" id="inv_price" name="inv_price" required min="0" value="<%= locals.inv_price %>"><br>
+
+    <label for="inv_miles">Miles</label>
+    <input type="number" step="0.1" id="inv_miles" name="inv_miles" required min="0" value="<%= locals.inv_miles %>"><br>
+
+    <label for="inv_image">Image Path</label>
+    <input type="text" id="inv_image" name="inv_image" required value="<%= locals.inv_image %>"><br>
+
+    <label for="inv_thumbnail">Thumbnail Path</label>
+    <input type="text" id="inv_thumbnail" name="inv_thumbnail" required value="<%= locals.inv_thumbnail %>"><br>
+
+    <label for="inv_color">Color</label>
+    <input type="text" id="inv_color" name="inv_color" required value="<%= locals.inv_color %>"><br>
+
+    <button type="submit">Add Inventory</button>
+  </form>
+</div>

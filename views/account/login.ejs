@@ -1,0 +1,51 @@
+<title><%= title %></title>
+<h1><%= title %></h1>
+
+<!-- Flash message area -->
+ <%- messages() %>
+ <% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<!--Login form -->
+<div class="form-wrapper">
+
+  <form action="/account/login" method="post">
+      <label for="account_email">Email</label>
+      <input type="email" id="account_email" name="account_email" required value="<%= locals.account_email %>">
+
+      <div class="password-wrapper">
+
+        <label for="account_password">Password</label>
+        <input type="password" id="account_password" name="account_password" required>
+        <span class="toggle-btn" onclick="togglePassword()">👁️</span>
+      </div>
+      <button type="submit">Login</button>
+      <p>
+        Don't have an account?
+        <a href="/account/register">Register here</a>
+      </p>
+    </form>
+
+ 
+</div>
+
+<script>
+
+  function togglePassword() {
+    const passwordField = document.getElementById("account_password");
+    const toggleBtn = document.querySelector(".toggle-btn");
+    if (passwordField.type === "password") {
+        passwordField.type = "text";
+        toggleBtn.textContent = "🚫"; // change icon when visible
+    } else {
+        passwordField.type = "password";
+        toggleBtn.textContent = "👁️"; // change icon when hidden
+    }
+  }
+
+</script>

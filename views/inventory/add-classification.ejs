@@ -1,0 +1,22 @@
+<title><%= title %></title>
+<h1><%= title %></h1>
+
+<!-- Flash message area -->
+<%- messages() %>
+<% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+<!--Add classification form -->
+<p id="form-alert">FIELD IS REQUIRED</p>
+<div class="form-wrapper">
+    <form action="/inv/add-classification" method="post" id="add-classification-form">
+        <label for="classification_name">Classification Name</label>
+        <input type="text" id="classification_name" name="classification_name" required pattern="^[A-Za-z0-9]+$" title="No spaces or special characters allowed" value="<%= locals.classification_name ? locals.classification_name : '' %>">
+        <button type="submit">Add Classification</button>
+    </form>
+</div>
