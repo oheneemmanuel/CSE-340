@@ -1,0 +1,74 @@
+<title><%= title %></title>
+<h1><%= title %></h1>
+
+
+<!-- Flash message area -->
+ <%- messages() %>
+ <% if (errors) { %>
+  <ul class="notice">
+ <% errors.array().forEach(error => { %>
+   <li><%= error.msg %></li>
+<%  }) %>
+ </ul>
+<% } %>
+
+
+<div class="form-wrapper">
+
+
+    <form action="/account/update-account" method="post">
+        <input type="hidden" name="account_id" value="<%= account_id %>">
+
+        <label for="account_firstname">First Name</label>
+        <input type="text" id="account_firstname" name="account_firstname" required value= "<%= account_firstname %>">
+
+        <label for="account_lastname">Last Name</label>
+        <input type="text" id="account_lastname" name="account_lastname" required value= "<%= account_lastname %>">
+        
+        <label for="account_email">Email Address</label>
+        <input type="email" id="account_email" placeholder="Enter" name="account_email" required value= "<%= account_email %>">
+      
+        <button type="submit">Update Account</button>
+        
+    </form>
+
+
+ 
+</div>
+
+<section class="change-password">
+    <h3>Change Password</h3>
+    <form action="/account/update-password" method="post">
+        <input type="hidden" name="account_id" value="<%= account_id %>">
+        <div class="password-wrapper">
+            <label for="account_password">Password</label>
+            <input type="password" id="account_password" name="account_password" placeholder="Enter a strong password" required pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9])(?!.*\s).{12,}$"><br>
+            <span class="toggle-btn" onclick="togglePassword()">👁️</span>
+        </div>
+        <small>
+          Password must be at least 12 characters long and contain:<br>
+          • 1 uppercase letter<br>
+          • 1 number<br>
+          • 1 special character
+        </small>
+        <button type="submit">Change Password</button>
+    </form>
+    
+</section>
+
+<script>
+    function togglePassword() {
+
+        const passwordField = document.getElementById("account_password");
+        const toggleBtn = document.querySelector(".toggle-btn");
+
+        if (passwordField.type === "password") {
+            passwordField.type = "text";
+            toggleBtn.textContent = "🚫"; // change icon when visible
+        } else {
+            passwordField.type = "password";
+            toggleBtn.textContent = "👁️"; // change icon when hidden
+        }
+    }
+
+</script>

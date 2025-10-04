@@ -26,7 +26,8 @@ const pool = require('./database/')
 
 // adding for body parsing
 const bodyParser = require("body-parser")
-
+// cookie parser
+const cookieParser = require("cookie-parser")
 
 app.use(session({
   store: new (require('connect-pg-simple')(session))({
@@ -46,12 +47,23 @@ app.use(function(req, res, next){
   next()
 })
 
+
+
+
+
+
 // Body Parser Middleware for the form submit 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))  // for parsing application/x-www-form-urlencoded
 
 
 
+// using the cookie parser
+app.use(cookieParser())
+
+
+// JWT Middleware for the validatio for account
+app.use(utilities.checkJWTToken)
 
 
 
@@ -105,6 +117,7 @@ app.use(async (err, req, res, next) => {
     nav
   })
 })
+
 
 
 

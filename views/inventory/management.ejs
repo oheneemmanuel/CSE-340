@@ -1,5 +1,6 @@
 <title><%= title %></title>
 <h1><%= title %></h1>
+
 <!-- Flash message area -->
 <%- messages() %>
 <% if (errors) { %>
@@ -9,7 +10,19 @@
 <%  }) %>
  </ul>
 <% } %>
-<ul>
+
+<ul id="account-management">
     <li><a href="/inv/add-classification">Add Classification</a></li>
     <li><a href="/inv/add-inventory">Add Vehicle</a></li>
 </ul>
+
+<h2>Manage Inventory</h2><br>
+
+<p>Please Select a classification from the list</p><br>
+<!-- Drop down list populated with classifications -->
+<%- classificationSelect %>
+
+<table id="inventoryDisplay"></table>
+<noscript>JavaScript must be enabled to use this page </noscript>
+
+<script src="../../js/inventory.js"></script>

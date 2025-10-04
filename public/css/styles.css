@@ -10,12 +10,48 @@ html, body {
   max-width: 100%;
   overflow-x: hidden;
 }
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+}
+body::before {
+  content: "";
+  background: url('/images/site/small_check.jpg') no-repeat center center/cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1; /* keeps it behind everything */
+  opacity: 0.4; /* dim it slightly for readability */
+}
+
+#wrapper {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding: 2rem;
+  background: white; /* translucent white */
+  border-radius: 12px;
+  text-align: center;
+  border: 4px solid #005fcc;  /* nice border color */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.3);
+}
+
+
 
 
 /* Header container */
 #top-header {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 1rem;
   color: black;
@@ -23,10 +59,11 @@ html, body {
 
 /* Site name styling */
 .siteName a {
-  font-size: 1.5rem;
+  font-size: 1rem;
   font-weight: bold;
   color: black;
   text-decoration: none;
+  margin-right: 2rem;
   
 }
 
@@ -35,6 +72,12 @@ html, body {
 }
 
 /* Tools section (e.g., My Account link) */
+#tools {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-right: 1rem;
+}
 #tools a {
   font-size: 1rem;
   color: #ffffff;
@@ -52,37 +95,43 @@ html, body {
 nav {
   background-color: black;
   cursor: pointer;
+  width: 80%;
+  margin: 0 auto;
   
 }
 nav a {
   color: white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
+  padding: 0.5rem 0;
+  width: 100%;
   
 }
 nav ul {
   list-style: none;
-  padding: 1rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
   align-items: center;
   font-size: small;
   margin-top: 1rem;
+  margin: 0;
+  padding: 0;
   gap: 0.5rem;
 }
 
-/* Each list item */
+nav ul li {
+  width: 100%;
+  text-align: center;
+}
 
 
 /* The links */
-nav ul li a {
+nav a {
   color: white;
   text-decoration: none;
   transition: color 0.2s ease, background 0.2s ease;
   border-radius: 4px;
-  margin: 0.2rem 0;
-  gap: 0.5rem;
+  display: block;
   
 }
 nav a:hover {
@@ -96,6 +145,7 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   margin-bottom: 2rem;
+  justify-content: center;
 }
 .hero-text {
   color: black;
@@ -106,11 +156,11 @@ nav a:hover {
   max-width: 300px;
   box-shadow: 0 0 10px rgba(134, 131, 131, 0.1);
   position: absolute;
-  left: .5rem;
-  top: 13rem;
+  margin-left: 2rem;
+  top: 12rem;
   font-size: medium;
   font-weight: bold;
-  margin: 1rem;
+  
 
 }
 .hero-image {
@@ -168,6 +218,31 @@ nav a:hover {
   border: 1px solid black;
   border-radius: 8px;
   
+}
+#account-management {
+  font-family: cursive;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  list-style: none;
+  padding: 0;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+#account-management a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  text-decoration: none;
+  background-color: #f5f5f5;   /* light gray background */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: #333;                 /* text color */
+  font-weight: 500;
+  font-size: medium;
+  transition: all 0.3s ease;   /* smooth hover animation */
+  cursor: pointer;
+  justify-content: center;
 }
 /* styling the inventory */
 #inv-display {
@@ -255,12 +330,21 @@ nav a:hover {
   color: #222;
 }
 /* For the message after successfully creating account */
-.messages .notice {
-  background: #4CAF50;
-  color: white;
+.notice {
+  color: black;
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 1rem;
+  font-size: medium;
+}
+.notice li {
+  margin-bottom: 0.3rem; /* spacing between multiple messages */
+  list-style: none;
+}
+.notice.success {
+
+  color: black;
+  font-size: medium;
 }
 
 /*styling the forms*/
@@ -276,9 +360,9 @@ nav a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 80vh;
+  min-height: 70vh;
   padding: 1rem;
-  background: rgb(197, 221, 246);
+  
 }
 .form-wrapper p {
   margin-top: 1rem;
@@ -297,6 +381,8 @@ form {
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
   width: 100%;
   max-width: 400px;
+  background-color: #f7f9fc;
+  
 
 }
 label {
@@ -349,6 +435,7 @@ small {
 .password-wrapper {
   position: relative;
   display: inline;
+  margin-top: 1rem;
 }
 .password-wrapper input {
   width: 100%;
@@ -358,13 +445,21 @@ small {
 .password-wrapper .toggle-btn {
   position: absolute;
   right: 10px;
-  top: 60%;
+  top: 62%;
   transform: translateY(-50%);
   cursor: pointer;
   font-size: 1rem;
   color: #0077ff;
   user-select: none;
 }
+.change-password {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  flex-direction: column;
+  align-items: center;
+}
+
 button {
   width: 100%;
   padding: 0.9rem;
@@ -380,12 +475,71 @@ button {
 button:hover {
   background: #005fcc;
 }
+#updateBtn:disabled {
+  background-color: #ccc;
+  color: #666;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+/*Styling the table for the display of inventory in the edit view */
+#inventoryDisplay {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+#inventoryDisplay th,
+#inventoryDisplay td {
+  
+  padding: 10px;
+  text-align: left;
+}
+#inventoryDisplay th {
+  background-color: #f4f4f4;
+  font-weight: bold;
+}
+
+#inventoryDisplay a {
+  display: inline-block;
+  padding: 5px 10px;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9rem;
+  text-decoration: underline;
+}
+
+/* Styles only for the account page */
+.account-page {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+}
+.account-page h1 {
+  text-align: center;
+  color: #222;
+  margin-top: 2rem;
+}
+.account-page a {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  text-decoration: underline;
+  background-color: #f5f5f5;   /* light gray background */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  color: #333;                 /* text color */
+  font-weight: 500;
+  transition: all 0.3s ease;   /* smooth hover animation */
+  cursor: pointer;
+  justify-content: center;
+}
+
 /*footer*/
 footer {
   text-align: center;
   background-color: #0055aa;
   color: white;
   padding: 1rem;
+  margin-top: 2rem;
 }
 footer a {
   margin-right: 20rem;

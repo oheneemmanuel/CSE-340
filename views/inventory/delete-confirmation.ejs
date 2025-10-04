@@ -1,0 +1,48 @@
+<title><%= title %></title>
+<h1><%= title %></h1>
+
+<!-- Flash message area -->
+<%- messages() %>
+
+<% if (errors && errors.length > 0) { %>
+  <ul class="notice">
+    <% errors.forEach(error => { %>
+      <li><%= error.msg %></li>
+    <% }) %>
+  </ul>
+<% } %>
+
+<p id="form-alert">ALL FIELDS ARE REQUIRED</p>
+
+<p>Confirm Deletion - The Delete is Permanent</p>
+<div class="form-wrapper" id="deleteForm">
+  <form action="/inv/delete/<%= inv_id%>" method="post" id="delete-inventory-form">
+    
+    
+
+    <label for="inv_make">Make</label>
+    <input type="text" readonly id="inv_make" name="inv_make" required value="<%= inv_make %>"><br>
+
+    <label for="inv_model">Model</label>
+    <input type="text" readonly id="inv_model" name="inv_model" required value="<%= inv_model %>"><br>
+
+    <label for="inv_year">Year</label>
+    <input type="number" readonly id="inv_year" name="inv_year" required min="1900" max="2099" value="<%= inv_year %>"><br>
+
+    
+    <label for="inv_price">Price</label>
+    <input type="number" readonly step="0.01" id="inv_price" name="inv_price" required min="0" value="<%= inv_price %>"><br>
+
+
+
+
+    <button type="submit">Delete</button>
+
+    <input type="hidden" name="inv_id"
+    <% if(inv_id) { %> value="<%= inv_id %>"
+    <% } %>>
+  </form>
+</div>
+
+
+

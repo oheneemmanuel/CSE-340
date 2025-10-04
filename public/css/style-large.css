@@ -5,10 +5,19 @@
         align-items: flex-start;
         justify-content: space-evenly;
     }
+    nav {
+        width: 100%;
+    }
     nav ul {
         flex-direction: row;
         justify-content: space-evenly;
         font-size: large;
+    }
+    #top-header {
+        justify-content: space-evenly;
+    }
+    #siteName {
+        font-size: 2rem;
     }
     /*hero text*/
     .hero-text {
@@ -24,6 +33,21 @@
         text-decoration: underline;
         margin-bottom: 1rem;
     }
+    #tools {
+        flex-direction: row;
+        margin: 0;
+    }
+
+    .account-page a {
+
+
+        text-decoration: none;
+    }
+    .account-page a:hover {
+        background-color: #222;
+        color: white;
+    }
+
     footer a {
         margin-right: 70em;
     }

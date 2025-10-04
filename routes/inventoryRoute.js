@@ -16,10 +16,26 @@ router.get("/detail/:inv_id", invController.buildInvId);
 router.get("/error", errorController.triggerError);
 
 // Route to build the management view
-router.get("/", utilities.handleErrors(invController.buildManagement));
+router.get(
+  "/",
+  utilities.checkLogin,
+  utilities.checkAccountType,
+  utilities.handleErrors(invController.buildManagement)
+)
+
 
 // Route to build the add classification view
-router.get("/add-classification", utilities.handleErrors(invController.buildAddClassification));
+router.get("/add-classification", utilities.checkAccountType, utilities.checkLogin, utilities.handleErrors(invController.buildAddClassification));
+
+//route to get the list of iventory when selected in the management view
+router.get("/getInventory/:classification_id", utilities.handleErrors(invController.getInventoryJSON));
+
+//Route to get get to the edit view of the inventory
+router.get("/edit/:inv_id", utilities.checkAccountType, utilities.checkLogin, utilities.checkAccountType, utilities.checkLogin, utilities.handleErrors(invController.buildEditView));
+
+//router to build the delete view
+router.get("/delete/:inv_id", utilities.handleErrors(invController.buildDeleteView));
+
 // process the new classification
 router.post(
   "/add-classification",
@@ -36,4 +52,19 @@ router.post(
   invValidator.checkInventoryData,
   utilities.handleErrors(invController.addInventory) 
 )
+
+router.post(
+  "/update",
+  utilities.handleErrors(invController.updateInventory)
+
+)
+// A post router to handle the delete
+router.post(
+  "/delete/:inv_id",
+  utilities.handleErrors(invController.deleteInventory)
+)
+//Routers to protect the account types from certain pages 
+
+
+
 module.exports = router;
